@@ -1,13 +1,14 @@
 import { MouseEventHandler } from 'react';
 import DialogButton from '../Atoms/DialogButton';
 type propsType = {
-    handleClickAdd: MouseEventHandler<HTMLButtonElement>;
+    text:string;
+    handleClick: MouseEventHandler<HTMLButtonElement>;
     handleClickCancel: MouseEventHandler<HTMLButtonElement>;
 }
-const DialogInputButton = ({handleClickAdd, handleClickCancel}:propsType) => (
+const DialogInputButton = ({text,handleClick, handleClickCancel}:propsType) => (
     <>
-        <DialogButton handleClick={handleClickAdd}>
-            追加する
+        <DialogButton handleClick={handleClick}>
+            {text}
         </DialogButton>
         <DialogButton handleClick={handleClickCancel} >
             キャンセル
