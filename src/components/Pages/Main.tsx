@@ -117,7 +117,7 @@ const Main = () => {
             <DialogInputContents inputArrayList={dialogInputContentsDict}/>
             <DialogInputButton text="TODOを追加する" handleClick={handleClickAdd} handleClickCancel={()=>handleClickCancelModal(closeAddModal)}/>
         </DialogTemplate>
-        <DialogTemplate _ref={deleteModalRef} id="deleteDialog" title={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを削除する`} dialogRole='alertdialog'>
+        <DialogTemplate _ref={deleteModalRef} id="deleteDialog" title={`TODOを削除する`} dialogRole='alertdialog'>
             <div>{`${todoVal[parseInt(selectTodoId)]?.title}`}のTODOを削除しますか?</div>
             <div>
             <DialogInputButton text={`削除する`} label={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを削除する`} handleClick={handleClickDelete} handleClickCancel={() => handleClickCancelModal(closeDeleteModal)}/>
