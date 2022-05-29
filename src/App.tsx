@@ -6,10 +6,10 @@ import Main from './components/Pages/Main';
 function App() {
   return (
     <>
-      <header>TODOリスト</header>
-      <body>
+      <header><h1>TODOリスト</h1></header>
+      <main>
         <Main/>
-      </body>
+      </main>
     </>
   );
 }
