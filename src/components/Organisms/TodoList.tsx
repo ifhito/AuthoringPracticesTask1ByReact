@@ -1,6 +1,7 @@
 import TodoContent from "../Molecules/TodoContent"
 import DialogButton from '../Atoms/DialogButton';
 import { todo } from '../../dialogType';
+import styles from './TodoList.module.css'
 
 type propsType = {
     todoList: todo[];
@@ -14,7 +15,7 @@ const TodoList = ({todoList, handleClickEdit, handleClickDelete}:propsType) => {
             <DialogButton handleClick={handleClickDelete} value={String(index)}>削除</DialogButton>
         </TodoContent>
     ))
-    return <>{domList}</>
+    return <ul className={styles.todoListUl}>{domList}</ul>
 }
 
 export default TodoList;

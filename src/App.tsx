@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <header>TODOリスト</header>
-      <Main/>
+      <body>
+        <Main/>
+      </body>
     </>
   );
 }
