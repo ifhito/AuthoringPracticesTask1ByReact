@@ -1,11 +1,13 @@
 import { ReactNode, MouseEventHandler } from 'react';
 type propsType = {
     handleClick: MouseEventHandler<HTMLButtonElement>;
-    value?: string; 
+    value?: string;
+    name?:string;
+    label?: string;
     children: ReactNode;
 }
-const DialogButton = ({handleClick, value='', children}:propsType) => (
-    <button type="button" value={value} onClick={handleClick}>
+const DialogButton = ({handleClick, value='', name='', label='', children}:propsType) => (
+    <button type="button" value={value} name={name} aria-label={label} onClick={handleClick}>
         {children}
     </button>
 )

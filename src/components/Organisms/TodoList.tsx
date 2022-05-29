@@ -12,8 +12,8 @@ type propsType = {
 const TodoList = ({todoList, handleClickEdit, handleClickDelete, handleTodoCheckChange}:propsType) => {
     const domList = todoList.map((todo, index) => (
         <TodoContent key={todo.title+index} id={index} title={todo.title} discription={todo.discription} deadline={todo.deadline} checked={todo.checked} handleChange={handleTodoCheckChange}>
-            <DialogButton handleClick={handleClickEdit} value={String(index)}>編集</DialogButton>
-            <DialogButton handleClick={handleClickDelete} value={String(index)}>削除</DialogButton>
+            <DialogButton handleClick={handleClickEdit} value={String(index)} name={todo.title} label={`${todo.title}のTODOを編集する`}>編集</DialogButton>
+            <DialogButton handleClick={handleClickDelete} value={String(index)} name={todo.title} label={`${todo.title}のTODOを削除する`}>削除</DialogButton>
         </TodoContent>
     ))
     return <ul className={styles.todoListUl}>{domList}</ul>

@@ -34,15 +34,18 @@ const Main = () => {
     }
     const handleClickDelete = () => {
         const newTodoVal = [...todoVal]
+        const deleteTodo = newTodoVal[parseInt(selectTodoId)]
         newTodoVal.splice(parseInt(selectTodoId), 1);
         console.log(newTodoVal)
         setTodoVal(newTodoVal);
-        setAlertText("削除に成功しました")
+        setAlertText(`${deleteTodo.title}の削除に成功しました`)
+        setSelectTodoId('')
         closeDeleteModal();
     }
 
     const handleClickEdit = () => {
         const newTodoVal = [...todoVal]
+        const editTodo = newTodoVal[parseInt(selectTodoId)]
         newTodoVal.splice(parseInt(selectTodoId), 1, addDialogValues);
         console.log(newTodoVal, selectTodoId, addDialogValues)
         setTodoVal(newTodoVal)
@@ -52,7 +55,8 @@ const Main = () => {
             discription: '',
             deadline: ''
         })
-        setAlertText("編集に成功しました")
+        setAlertText(`${editTodo.title}の編集に成功しました`)
+        setSelectTodoId('')
         closeEditModal();
     }
     const dialogInputContentsDict = [
@@ -113,15 +117,15 @@ const Main = () => {
             <DialogInputContents inputArrayList={dialogInputContentsDict}/>
             <DialogInputButton text="TODOを追加する" handleClick={handleClickAdd} handleClickCancel={()=>handleClickCancelModal(closeAddModal)}/>
         </DialogTemplate>
-        <DialogTemplate _ref={deleteModalRef} id="deleteDialog" title="TODOを削除する" dialogRole='alertdialog'>
-            <div>選択したアイテムを削除しますか?</div>
+        <DialogTemplate _ref={deleteModalRef} id="deleteDialog" title={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを削除する`} dialogRole='alertdialog'>
+            <div>{`${todoVal[parseInt(selectTodoId)]?.title}`}のTODOを削除しますか?</div>
             <div>
-            <DialogInputButton text="TODOを削除する" handleClick={handleClickDelete} handleClickCancel={() => handleClickCancelModal(closeDeleteModal)}/>
+            <DialogInputButton text={`削除する`} label={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを削除する`} handleClick={handleClickDelete} handleClickCancel={() => handleClickCancelModal(closeDeleteModal)}/>
             </div>
         </DialogTemplate>
-        <DialogTemplate _ref={editModalRef} id="editDialog" title="TODOを編集する">
+        <DialogTemplate _ref={editModalRef} id="editDialog" title={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを編集する`}>
             <DialogInputContents inputArrayList={dialogInputContentsDict}/>
-            <DialogInputButton text="TODOを編集する" handleClick={handleClickEdit} handleClickCancel={() => handleClickCancelModal(closeEditModal)}/>
+            <DialogInputButton text={`編集する`} label={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを編集する`} handleClick={handleClickEdit} handleClickCancel={() => handleClickCancelModal(closeEditModal)}/>
         </DialogTemplate>
         </>
     )
