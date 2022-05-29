@@ -3,7 +3,7 @@ import DialogButton from '../Atoms/DialogButton';
 type propsType = {
     text:string;
     handleClick: MouseEventHandler<HTMLButtonElement>;
-    handleClickCancel: MouseEventHandler<HTMLButtonElement>;
+    handleClickCancel: () => void;
 }
 const DialogInputButton = ({text,handleClick, handleClickCancel}:propsType) => (
     <>

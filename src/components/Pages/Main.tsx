@@ -6,11 +6,12 @@ import DialogInputButton from '../Organisms/DialogInputButton';
 import { useCallback, useRef, useState, MouseEventHandler } from 'react';
 import TodoList from '../Organisms/TodoList';
 import { todo } from '../../dialogType';
-
+import MainCss from './Main.module.css';
 
 const Main = () => {
     const [todoVal, setTodoVal] = useState<todo[]>([])
     const [selectTodoId, setSelectTodoId] = useState('')
+    const [alertText, setAlertText] = useState('');
     const {values:addDialogValues, onChange: addDialogOnChange, setValues: setTodoInputValues} = useInput<todo>({
         title: '',
         discription: '',
@@ -25,6 +26,7 @@ const Main = () => {
             deadline: ''
         })
         console.log(newTodoVal)
+        setAlertText("追加に成功しました")
         closeAddModal();
 
     }
@@ -33,12 +35,12 @@ const Main = () => {
         newTodoVal.splice(parseInt(selectTodoId), 1);
         console.log(newTodoVal)
         setTodoVal(newTodoVal);
+        setAlertText("削除に成功しました")
         closeDeleteModal();
     }
 
     const handleClickEdit = () => {
         const newTodoVal = [...todoVal]
-        // const id = (e.target as HTMLInputElement).value;
         newTodoVal.splice(parseInt(selectTodoId), 1, addDialogValues);
         console.log(newTodoVal, selectTodoId, addDialogValues)
         setTodoVal(newTodoVal)
@@ -47,6 +49,7 @@ const Main = () => {
             discription: '',
             deadline: ''
         })
+        setAlertText("編集に成功しました")
         closeEditModal();
     }
     const dialogInputContentsDict = [
@@ -74,6 +77,10 @@ const Main = () => {
         setSelectTodoId(id)
         showDeleteModal()
     }
+    const handleClickCancelModal = (closeFunc:()=>void) => {
+        closeFunc()
+        setAlertText("キャンセルしました")
+    }
     const {modalRef: addModalRef, showModal: showAddModal, closeModal: closeAddModal} = useDialogRef()
     const {modalRef: deleteModalRef, showModal: showDeleteModal, closeModal: closeDeleteModal} = useDialogRef()
     const {modalRef: editModalRef, showModal: showEditModal, closeModal: closeEditModal} = useDialogRef()
@@ -82,20 +89,21 @@ const Main = () => {
         <button type="button" onClick={showAddModal}>
         追加する
         </button>
+        <div className={MainCss.visuallyHidden} id="notes_save_status" role="alert">{alertText}</div>
         <TodoList handleClickEdit={handleClickShowEditModal} handleClickDelete={handleClickShowDeleteModal} todoList={todoVal}/>
         <DialogTemplate _ref={addModalRef} id="addDialog" title="TODOを追加する">
             <DialogInputContents inputArrayList={dialogInputContentsDict}/>
-            <DialogInputButton text="TODOを追加する" handleClick={handleClickAdd} handleClickCancel={closeAddModal}/>
+            <DialogInputButton text="TODOを追加する" handleClick={handleClickAdd} handleClickCancel={()=>handleClickCancelModal(closeAddModal)}/>
         </DialogTemplate>
         <DialogTemplate _ref={deleteModalRef} id="deleteDialog" title="TODOを削除する" dialogRole='alertdialog'>
             <div>選択したアイテムを削除しますか?</div>
             <div>
-            <DialogInputButton text="TODOを削除する" handleClick={handleClickDelete} handleClickCancel={closeDeleteModal}/>
+            <DialogInputButton text="TODOを削除する" handleClick={handleClickDelete} handleClickCancel={() => handleClickCancelModal(closeDeleteModal)}/>
             </div>
         </DialogTemplate>
         <DialogTemplate _ref={editModalRef} id="editDialog" title="TODOを編集する">
             <DialogInputContents inputArrayList={dialogInputContentsDict}/>
-            <DialogInputButton text="TODOを編集する" handleClick={handleClickEdit} handleClickCancel={closeEditModal}/>
+            <DialogInputButton text="TODOを編集する" handleClick={handleClickEdit} handleClickCancel={() => handleClickCancelModal(closeEditModal)}/>
         </DialogTemplate>
         </>
     )
