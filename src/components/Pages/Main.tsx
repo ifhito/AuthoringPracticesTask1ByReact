@@ -6,6 +6,7 @@ import DialogInputButton from '../Organisms/DialogInputButton';
 import { useCallback, useRef, useState, MouseEventHandler } from 'react';
 import TodoList from '../Organisms/TodoList';
 import { todo } from '../../dialogType';
+import DialogButton from '../Atoms/DialogButton';
 const Main = () => {
     const [todoVal, setTodoVal] = useState<todo[]>([])
     const [selectTodoId, setSelectTodoId] = useState('')
@@ -98,7 +99,7 @@ const Main = () => {
             <DialogInputContents inputArrayList={dialogInputContentsDict}/>
             <DialogInputButton text="TODOを追加する" handleClick={handleClickAdd} handleClickCancel={closeAddModal}/>
         </DialogTemplate>
-        <DialogTemplate _ref={deleteModalRef} id="deleteDialog" title="TODOを削除する">
+        <DialogTemplate _ref={deleteModalRef} id="deleteDialog" title="TODOを削除する" dialogRole='alertdialog'>
             <div>選択したアイテムを削除しますか?</div>
             <div>
             <DialogInputButton text="TODOを削除する" handleClick={handleClickDelete} handleClickCancel={closeDeleteModal}/>
