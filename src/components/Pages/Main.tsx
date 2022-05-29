@@ -13,6 +13,7 @@ const Main = () => {
     const [selectTodoId, setSelectTodoId] = useState('')
     const [alertText, setAlertText] = useState('');
     const {values:addDialogValues, onChange: addDialogOnChange, setValues: setTodoInputValues} = useInput<todo>({
+        checked: false,
         title: '',
         discription: '',
         deadline: ''
@@ -21,6 +22,7 @@ const Main = () => {
         const newTodoVal = todoVal.concat(addDialogValues);
         setTodoVal(newTodoVal)
         setTodoInputValues({
+            checked: false,
             title: '',
             discription: '',
             deadline: ''
@@ -45,6 +47,7 @@ const Main = () => {
         console.log(newTodoVal, selectTodoId, addDialogValues)
         setTodoVal(newTodoVal)
         setTodoInputValues({
+            checked: false,
             title: '',
             discription: '',
             deadline: ''
@@ -81,6 +84,21 @@ const Main = () => {
         closeFunc()
         setAlertText("キャンセルしました")
     }
+
+    const handleTodoCheckChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+        const id = (e.target as HTMLInputElement).value
+        const title = (e.target as HTMLInputElement).name
+        const newTodoVal = [...todoVal]
+        const newTodo = newTodoVal[parseInt(id)]
+        newTodo['checked'] = !newTodo.checked;
+        newTodoVal.splice(parseInt(id), 1, newTodo)
+        setTodoVal(newTodoVal)
+        if(newTodo['checked']){
+            setAlertText(`${title}のTODOを完了しました`)
+        } else {
+            setAlertText(`${title}のTODOを未完了とします`)
+        }
+    }
     const {modalRef: addModalRef, showModal: showAddModal, closeModal: closeAddModal} = useDialogRef()
     const {modalRef: deleteModalRef, showModal: showDeleteModal, closeModal: closeDeleteModal} = useDialogRef()
     const {modalRef: editModalRef, showModal: showEditModal, closeModal: closeEditModal} = useDialogRef()
@@ -90,7 +108,7 @@ const Main = () => {
         追加する
         </button>
         <div className={MainCss.visuallyHidden} id="notes_save_status" role="alert">{alertText}</div>
-        <TodoList handleClickEdit={handleClickShowEditModal} handleClickDelete={handleClickShowDeleteModal} todoList={todoVal}/>
+        <TodoList handleClickEdit={handleClickShowEditModal} handleClickDelete={handleClickShowDeleteModal} handleTodoCheckChange={handleTodoCheckChange}todoList={todoVal}/>
         <DialogTemplate _ref={addModalRef} id="addDialog" title="TODOを追加する">
             <DialogInputContents inputArrayList={dialogInputContentsDict}/>
             <DialogInputButton text="TODOを追加する" handleClick={handleClickAdd} handleClickCancel={()=>handleClickCancelModal(closeAddModal)}/>

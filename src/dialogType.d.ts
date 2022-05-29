@@ -28,6 +28,7 @@ export interface HTMLDialogElement extends HTMLElement {
 }
 
 export type todo = {
+    checked: boolean;
     title: string;
     discription: string;
     deadline: string;

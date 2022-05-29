@@ -1,8 +1,5 @@
 import { useState, ChangeEvent, useRef, useCallback } from 'react';
 import { HTMLDialogElement } from './dialogType';
-type initValueType = {
-    [hogekey: string]: string;
-}
 export const useInput = <T>(initValue:T) => {
     const [values, setValues] = useState(initValue);
     const valueSet = (e: ChangeEvent<HTMLInputElement>) => {
