@@ -6,7 +6,8 @@ import DialogInputButton from '../Organisms/DialogInputButton';
 import { useCallback, useRef, useState, MouseEventHandler } from 'react';
 import TodoList from '../Organisms/TodoList';
 import { todo } from '../../dialogType';
-import DialogButton from '../Atoms/DialogButton';
+
+
 const Main = () => {
     const [todoVal, setTodoVal] = useState<todo[]>([])
     const [selectTodoId, setSelectTodoId] = useState('')
@@ -16,17 +17,6 @@ const Main = () => {
         deadline: ''
     })
     const handleClickAdd = async () => {
-        // let url = "localhost:5001?"
-        // const addDialogValuesList = Object.entries(addDialogValues)
-        // addDialogValuesList.forEach((value) => {
-        //     if(value[1] != ''){
-        //         url += value.join('=');
-        //         url += '&';
-        //     }
-        // }
-        // )
-        // url = url.slice(0, -1);
-        // console.log(url)
         const newTodoVal = todoVal.concat(addDialogValues);
         setTodoVal(newTodoVal)
         setTodoInputValues({
@@ -39,8 +29,6 @@ const Main = () => {
 
     }
     const handleClickDelete = () => {
-        // const id = (e.target as HTMLInputElement).value;
-        // console.log(id)
         const newTodoVal = [...todoVal]
         newTodoVal.splice(parseInt(selectTodoId), 1);
         console.log(newTodoVal)
