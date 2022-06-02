@@ -113,17 +113,17 @@ const Main = () => {
         </button>
         <div className={MainCss.visuallyHidden} id="notes_save_status" role="alert">{alertText}</div>
         <TodoList handleClickEdit={handleClickShowEditModal} handleClickDelete={handleClickShowDeleteModal} handleTodoCheckChange={handleTodoCheckChange}todoList={todoVal}/>
-        <DialogTemplate _ref={addModalRef} id="addDialog" title="TODOを追加する">
+        <DialogTemplate ariaDescribedby='addDialogDesc' ariaLabelledby='addDialogLabel' _ref={addModalRef} id="addDialog" title="TODOを追加する">
             <DialogInputContents inputArrayList={dialogInputContentsDict}/>
             <DialogInputButton text="TODOを追加する" handleClick={handleClickAdd} handleClickCancel={()=>handleClickCancelModal(closeAddModal)}/>
         </DialogTemplate>
-        <DialogTemplate _ref={deleteModalRef} id="deleteDialog" title={`TODOを削除する`} dialogRole='alertdialog'>
-            <div>{`${todoVal[parseInt(selectTodoId)]?.title}`}のTODOを削除しますか?</div>
+        <DialogTemplate ariaDescribedby='deleteDialogDesc' ariaLabelledby='deleteDialogLabel' _ref={deleteModalRef} id="deleteDialog" title={`TODOを削除する`} dialogRole='alertdialog'>
+            <div aria-describedby='deleteDialogDesc'>{`${todoVal[parseInt(selectTodoId)]?.title}`}のTODOを削除しますか?</div>
             <div>
             <DialogInputButton text={`削除する`} label={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを削除する`} handleClick={handleClickDelete} handleClickCancel={() => handleClickCancelModal(closeDeleteModal)}/>
             </div>
         </DialogTemplate>
-        <DialogTemplate _ref={editModalRef} id="editDialog" title={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを編集する`}>
+        <DialogTemplate ariaDescribedby='editDialogDesc' ariaLabelledby='editDialogLabel' _ref={editModalRef} id="editDialog" title={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを編集する`}>
             <DialogInputContents inputArrayList={dialogInputContentsDict}/>
             <DialogInputButton text={`編集する`} label={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを編集する`} handleClick={handleClickEdit} handleClickCancel={() => handleClickCancelModal(closeEditModal)}/>
         </DialogTemplate>
