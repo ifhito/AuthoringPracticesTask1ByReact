@@ -33,3 +33,5 @@ export type todo = {
     discription: string;
     deadline: string;
 };
+
+export type modalFunc = () => void;
