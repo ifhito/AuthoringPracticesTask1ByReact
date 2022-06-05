@@ -98,6 +98,12 @@ export const useTodoModalManage = (
 
   const handleClickCancelModal = (closeFunc: modalFunc) => {
     closeFunc();
+    setValues({
+      checked: false,
+      title: "",
+      discription: "",
+      deadline: "",
+    });
     setAlertText("キャンセルしました");
   };
 

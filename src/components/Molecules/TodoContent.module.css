@@ -2,3 +2,34 @@
     display: flex;
     align-items: center;
 }
+
+.todoDateAndButton {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.todoDesc {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.h2 {
+    margin: 0;
+}
+
+.desc {
+    margin-left: 1rem;
+}
+
+.buttonWrapper {
+    width: 7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todoContentsWrapper {
+    width: 15rem;
+}
+

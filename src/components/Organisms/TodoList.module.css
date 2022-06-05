@@ -1,3 +1,29 @@
 .todoListUl {
-    list-style-type: none
+    list-style-type: none;
+    --edit-color: #1868F2;
+    --delete-color: #C00000;
+}
+
+.editButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--edit-color);
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: transparent;
+    border-radius: 6px;
+    border: 1px solid var(--edit-color);
+}
+
+.deleteButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--delete-color);
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: transparent;
+    border-radius: 6px;
+    border: 1px solid var(--delete-color);
 }

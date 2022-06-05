@@ -20,9 +20,10 @@ const TodoContent = ({
   handleChange,
   children = [],
 }: propsType) => (
-  <li>
+  <li className={`${checked ? styles.wrapperLi__checked : styles.wrapperLi}`}>
     <article className={styles.todoWrapper}>
       <DialogInput
+        style={styles.checkbox}
         id={String(id)}
         type='checkbox'
         name={title}
@@ -30,17 +31,19 @@ const TodoContent = ({
         checked={checked}
         handleChange={handleChange}
       />
-      <div>
-        <label htmlFor={String(id)}>
-          <h2>{title}</h2>
-        </label>
-        <div className={styles.todoWrapper}>
-          <div>
-            <div>{discription}</div>
-            <time dateTime={deadline}>{deadline}</time>
+      <div className={styles.todoContentsWrapper}>
+        <div className={styles.todoDesc}>
+          <label className={styles.todoLabel} htmlFor={String(id)}>
+            <h2 className={styles.h2}>{title}</h2>
+          </label>
+          <div className={styles.desc}>{discription}</div>
+        </div>
+        <div className={styles.todoDateAndButton}>
+          <time dateTime={deadline}>{deadline}</time>
+          <div className={styles.buttonWrapper}>
+            {children[0]}
+            {children[1]}
           </div>
-          {children[0]}
-          {children[1]}
         </div>
       </div>
     </article>

@@ -25,11 +25,13 @@ const DialogTemplate = ({
     aria-labelledby={ariaLabelledby}
     aria-describedby={ariaDescribedby}
   >
-    <h2 id={ariaLabelledby}>{title}</h2>
-    <form className={styles.dialogForm} action='' method='dialog'>
-      {children[0]}
-      {children[1]}
-    </form>
+    <div className={styles.dialogForm}>
+      <h2 id={ariaLabelledby}>{title}</h2>
+      <form className={styles.form} action='' method='dialog'>
+        {children[0]}
+        {children[1]}
+      </form>
+    </div>
   </dialog>
 );
 

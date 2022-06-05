@@ -1,3 +1,9 @@
+dialog {
+    --border-color: #1868F2;
+    --add-dialog-color: #1F6ED4;
+    --delete-dialog-color: #C00000;
+    --edit-dialog-color: #1F6ED4;
+}
 .visuallyHidden {
   position: fixed !important;
   /* keep it on viewport */
@@ -17,4 +23,87 @@
   /* ensure no other style sets display to none */
   display: block !important;
   visibility: visible !important;
+}
+
+.inputStyle {
+    width: 100%; /*親要素いっぱい広げる*/
+    padding: 10px 15px; /*ボックスを大きくする*/
+    font-size: 16px;
+    border-radius: 3px; /*ボックス角の丸み*/
+    border: 2px solid #ddd; /*枠線*/
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+}
+
+.deleteDialogDesc {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+
+.dialogDeleteButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem auto;
+    padding: 1em 1.5em;
+    color: #F8F9FC;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: var(--delete-dialog-color);
+    border-radius: 50vh;
+    border: 1px solid var(--delete-dialog-color);
+}
+.dialogDeleteButton:hover {
+    border: 1px solid #FFEF6C;
+}
+
+.dialogEditButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem auto;
+    padding: 1em 1.5em;
+    color: #B9EDF8;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: var(--edit-dialog-color);
+    border-radius: 50vh;
+    border: 1px solid var(--edit-dialog-color);
+}
+
+.dialogEditButton:hover {
+    border: 1px solid #FFEF6C;
+}
+.dialogAddButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem auto;
+    padding: 1em 1.5em;
+    color: #B9EDF8;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: var(--add-dialog-color);
+    border-radius: 50vh;
+    border: 1px solid var(--add-dialog-color);
+}
+.dialogAddButton:hover {
+    border: 1px solid #FFEF6C;
+}
+.dialogCancelButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem auto;
+    padding: 1em 1.5em;
+    color: var(--border-color);
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: transparent;
+    border-radius: 50vh;
+    border: 1px solid var(--border-color);
+}
+
+.dialogCancelButton:hover {
+    border: 1px solid #FFEF6C;
 }

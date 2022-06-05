@@ -6,6 +6,7 @@ const DialogInput = ({
   type,
   name,
   checked,
+  style,
 }: {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   id?: string;
@@ -13,8 +14,10 @@ const DialogInput = ({
   type: string;
   name?: string;
   checked?: boolean;
+  style?: string;
 }) => (
   <input
+    className={style ?? ""}
     id={id}
     type={type}
     name={name}

@@ -26,6 +26,7 @@ const TodoList = ({
       handleChange={handleTodoCheckChange}
     >
       <DialogButton
+        style={styles.editButton}
         handleClick={handleClickEdit}
         value={String(index)}
         name={todo.title}
@@ -34,6 +35,7 @@ const TodoList = ({
         編集
       </DialogButton>
       <DialogButton
+        style={styles.deleteButton}
         handleClick={handleClickDelete}
         value={String(index)}
         name={todo.title}

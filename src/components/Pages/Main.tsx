@@ -6,7 +6,7 @@ import DialogInputButton from "../Organisms/DialogInputButton";
 import { useCallback, useRef, useState, MouseEventHandler } from "react";
 import TodoList from "../Organisms/TodoList";
 import { todo } from "../../dialogType";
-import MainCss from "./Main.module.css";
+import styles from "./Main.module.css";
 
 const Main = () => {
   const {
@@ -55,6 +55,7 @@ const Main = () => {
       label: "タイトル",
       inputChildren: (
         <DialogInput
+          style={styles.inputStyle}
           type='text'
           name='title'
           value={addDialogValues.title}
@@ -66,6 +67,7 @@ const Main = () => {
       label: "詳細",
       inputChildren: (
         <DialogInput
+          style={styles.inputStyle}
           type='text'
           name='discription'
           value={addDialogValues.discription}
@@ -77,6 +79,7 @@ const Main = () => {
       label: "期限",
       inputChildren: (
         <DialogInput
+          style={styles.inputStyle}
           type='date'
           name='deadline'
           value={addDialogValues.deadline}
@@ -92,7 +95,7 @@ const Main = () => {
         追加する
       </button>
       <div
-        className={MainCss.visuallyHidden}
+        className={styles.visuallyHidden}
         id='notes_save_status'
         role='alert'
       >
@@ -116,6 +119,8 @@ const Main = () => {
           text='TODOを追加する'
           handleClick={handleClickAdd}
           handleClickCancel={() => handleClickCancelModal(closeAddModal)}
+          dialogButtonStyle={styles.dialogAddButton}
+          dialogCancelButton={styles.dialogCancelButton}
         />
       </DialogTemplate>
       <DialogTemplate
@@ -126,7 +131,10 @@ const Main = () => {
         title={`TODOを削除する`}
         dialogRole='alertdialog'
       >
-        <div aria-describedby='deleteDialogDesc'>
+        <div
+          className={styles.deleteDialogDesc}
+          aria-describedby='deleteDialogDesc'
+        >
           {`${todoVal[parseInt(selectTodoId)]?.title}`}のTODOを削除しますか?
         </div>
         <div>
@@ -135,6 +143,8 @@ const Main = () => {
             label={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを削除する`}
             handleClick={handleClickDelete}
             handleClickCancel={() => handleClickCancelModal(closeDeleteModal)}
+            dialogButtonStyle={styles.dialogDeleteButton}
+            dialogCancelButton={styles.dialogCancelButton}
           />
         </div>
       </DialogTemplate>
@@ -151,6 +161,8 @@ const Main = () => {
           label={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを編集する`}
           handleClick={handleClickEdit}
           handleClickCancel={() => handleClickCancelModal(closeEditModal)}
+          dialogButtonStyle={styles.dialogEditButton}
+          dialogCancelButton={styles.dialogCancelButton}
         />
       </DialogTemplate>
     </>

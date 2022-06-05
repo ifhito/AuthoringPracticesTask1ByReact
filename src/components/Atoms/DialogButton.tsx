@@ -5,6 +5,7 @@ type propsType = {
   name?: string;
   label?: string;
   children: ReactNode;
+  style?: string;
 };
 const DialogButton = ({
   handleClick,
@@ -12,8 +13,10 @@ const DialogButton = ({
   name = "",
   label = "",
   children,
+  style,
 }: propsType) => (
   <button
+    className={style}
     type='button'
     value={value}
     name={name}

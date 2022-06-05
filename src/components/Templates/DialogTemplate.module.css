@@ -1,4 +1,11 @@
 .dialogForm {
     display: flex;
     flex-direction: column;
+    width: 70vh;
+    align-items: center;
+    margin: 2rem;
+}
+
+.form {
+    width: 50%;
 }

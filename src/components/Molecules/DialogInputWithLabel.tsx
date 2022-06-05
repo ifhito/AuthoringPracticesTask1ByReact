@@ -8,8 +8,8 @@ const DialogInputWithLabel = ({
   children?: ReactNode;
 }) => (
   <label className={styles.label}>
-    {label}
-    <p aria-hidden='true'>:</p> {children}
+    <p className={styles.labelText}>{label}</p>
+    {children}
   </label>
 );
 
