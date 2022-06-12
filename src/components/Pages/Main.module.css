@@ -50,7 +50,7 @@ dialog {
     font-size: 1rem;
     font-weight: 700;
     background-color: var(--delete-dialog-color);
-    border-radius: 50vh;
+    border-radius: 2rem;
     border: 1px solid var(--delete-dialog-color);
 }
 .dialogDeleteButton:hover {
@@ -67,7 +67,7 @@ dialog {
     font-size: 1rem;
     font-weight: 700;
     background-color: var(--edit-dialog-color);
-    border-radius: 50vh;
+    border-radius: 2rem;
     border: 1px solid var(--edit-dialog-color);
 }
 
@@ -84,7 +84,7 @@ dialog {
     font-size: 1rem;
     font-weight: 700;
     background-color: var(--add-dialog-color);
-    border-radius: 50vh;
+    border-radius: 2rem;
     border: 1px solid var(--add-dialog-color);
 }
 .dialogAddButton:hover {
@@ -100,7 +100,7 @@ dialog {
     font-size: 1rem;
     font-weight: 700;
     background-color: transparent;
-    border-radius: 50vh;
+    border-radius: 2rem;
     border: 1px solid var(--border-color);
 }
 

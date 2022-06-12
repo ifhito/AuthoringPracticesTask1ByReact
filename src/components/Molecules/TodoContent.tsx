@@ -22,19 +22,24 @@ const TodoContent = ({
 }: propsType) => (
   <li className={`${checked ? styles.wrapperLi__checked : styles.wrapperLi}`}>
     <article className={styles.todoWrapper}>
-      <DialogInput
-        style={styles.checkbox}
-        id={String(id)}
-        type='checkbox'
-        name={title}
-        value={String(id)}
-        checked={checked}
-        handleChange={handleChange}
-      />
+      <div className={styles.checkboxWrapper}>
+        <DialogInput
+          style={styles.checkbox}
+          id={String(id)}
+          type='checkbox'
+          name={title}
+          value={String(id)}
+          checked={checked}
+          handleChange={handleChange}
+        />
+        <span aria-hidden='true'></span>
+      </div>
       <div className={styles.todoContentsWrapper}>
         <div className={styles.todoDesc}>
           <label className={styles.todoLabel} htmlFor={String(id)}>
-            <h2 className={styles.h2}>{title}</h2>
+            <h2 className={checked ? styles.h2__checked : styles.h2}>
+              {title}
+            </h2>
           </label>
           <div className={styles.desc}>{discription}</div>
         </div>
