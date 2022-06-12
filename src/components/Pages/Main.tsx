@@ -114,14 +114,16 @@ const Main = () => {
         id='addDialog'
         title='TODOを追加する'
       >
-        <DialogInputContents inputArrayList={dialogInputContentsDict} />
-        <DialogInputButton
-          text='TODOを追加する'
-          handleClick={handleClickAdd}
-          handleClickCancel={() => handleClickCancelModal(closeAddModal)}
-          dialogButtonStyle={styles.dialogAddButton}
-          dialogCancelButton={styles.dialogCancelButton}
-        />
+        <form className={styles.form} action='' method='dialog'>
+          <DialogInputContents inputArrayList={dialogInputContentsDict} />
+          <DialogInputButton
+            text='TODOを追加する'
+            handleClick={handleClickAdd}
+            handleClickCancel={() => handleClickCancelModal(closeAddModal)}
+            dialogButtonStyle={styles.dialogAddButton}
+            dialogCancelButton={styles.dialogCancelButton}
+          />
+        </form>
       </DialogTemplate>
       <DialogTemplate
         ariaDescribedby='deleteDialogDesc'
@@ -131,21 +133,25 @@ const Main = () => {
         title={`TODOを削除する`}
         dialogRole='alertdialog'
       >
-        <div
-          className={styles.deleteDialogDesc}
-          aria-describedby='deleteDialogDesc'
-        >
-          {`${todoVal[parseInt(selectTodoId)]?.title}`}のTODOを削除しますか?
-        </div>
-        <div>
-          <DialogInputButton
-            text={`削除する`}
-            label={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを削除する`}
-            handleClick={handleClickDelete}
-            handleClickCancel={() => handleClickCancelModal(closeDeleteModal)}
-            dialogButtonStyle={styles.dialogDeleteButton}
-            dialogCancelButton={styles.dialogCancelButton}
-          />
+        <div className={styles.form}>
+          <div
+            className={styles.deleteDialogDesc}
+            aria-describedby='deleteDialogDesc'
+          >
+            {`${todoVal[parseInt(selectTodoId)]?.title}`}のTODOを削除しますか?
+          </div>
+          <div>
+            <DialogInputButton
+              text={`削除する`}
+              label={`${
+                todoVal[parseInt(selectTodoId)]?.title
+              }のTODOを削除する`}
+              handleClick={handleClickDelete}
+              handleClickCancel={() => handleClickCancelModal(closeDeleteModal)}
+              dialogButtonStyle={styles.dialogDeleteButton}
+              dialogCancelButton={styles.dialogCancelButton}
+            />
+          </div>
         </div>
       </DialogTemplate>
       <DialogTemplate
@@ -155,15 +161,17 @@ const Main = () => {
         id='editDialog'
         title={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを編集する`}
       >
-        <DialogInputContents inputArrayList={dialogInputContentsDict} />
-        <DialogInputButton
-          text={`編集する`}
-          label={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを編集する`}
-          handleClick={handleClickEdit}
-          handleClickCancel={() => handleClickCancelModal(closeEditModal)}
-          dialogButtonStyle={styles.dialogEditButton}
-          dialogCancelButton={styles.dialogCancelButton}
-        />
+        <form className={styles.form} action='' method='dialog'>
+          <DialogInputContents inputArrayList={dialogInputContentsDict} />
+          <DialogInputButton
+            text={`編集する`}
+            label={`${todoVal[parseInt(selectTodoId)]?.title}のTODOを編集する`}
+            handleClick={handleClickEdit}
+            handleClickCancel={() => handleClickCancelModal(closeEditModal)}
+            dialogButtonStyle={styles.dialogEditButton}
+            dialogCancelButton={styles.dialogCancelButton}
+          />
+        </form>
       </DialogTemplate>
     </>
   );

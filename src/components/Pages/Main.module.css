@@ -125,3 +125,7 @@ dialog {
 .addButton:hover {
     border: 1px solid #FFEF6C;
 }
+
+.form {
+    width: 50%;
+}

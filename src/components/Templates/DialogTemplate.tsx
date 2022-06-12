@@ -13,7 +13,7 @@ const DialogTemplate = ({
   _ref: React.MutableRefObject<HTMLDialogElement | null>;
   id: string;
   title: string;
-  children: ReactNode[];
+  children: ReactNode;
   dialogRole?: string;
   ariaLabelledby: string;
   ariaDescribedby: string;
@@ -27,10 +27,7 @@ const DialogTemplate = ({
   >
     <div className={styles.dialogForm}>
       <h2 id={ariaLabelledby}>{title}</h2>
-      <form className={styles.form} action='' method='dialog'>
-        {children[0]}
-        {children[1]}
-      </form>
+      {children}
     </div>
   </dialog>
 );

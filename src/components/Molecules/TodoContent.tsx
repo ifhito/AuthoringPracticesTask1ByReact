@@ -31,6 +31,7 @@ const TodoContent = ({
           value={String(id)}
           checked={checked}
           handleChange={handleChange}
+          ariaLabel={`${title}のTODOを完了とする`}
         />
         <span aria-hidden='true'></span>
       </div>
