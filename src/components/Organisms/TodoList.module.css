@@ -1,6 +1,6 @@
 .todoListUl {
     list-style-type: none;
-    width: 30%;
+    width: fit-content;
     --edit-color: #1868F2;
     --delete-color: #C00000;
 }
