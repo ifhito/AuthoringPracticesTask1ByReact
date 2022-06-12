@@ -45,12 +45,12 @@ dialog {
     justify-content: space-between;
     align-items: center;
     margin: 1rem auto;
-    padding: 1em 1.5em;
+    padding: 0.5em 1.5em;
     color: #F8F9FC;
     font-size: 1rem;
     font-weight: 700;
     background-color: var(--delete-dialog-color);
-    border-radius: 2rem;
+    border-radius: 1rem;
     border: 1px solid var(--delete-dialog-color);
 }
 .dialogDeleteButton:hover {
@@ -62,12 +62,12 @@ dialog {
     justify-content: space-between;
     align-items: center;
     margin: 1rem auto;
-    padding: 1em 1.5em;
+    padding: 0.5em 1.5em;
     color: #B9EDF8;
     font-size: 1rem;
     font-weight: 700;
     background-color: var(--edit-dialog-color);
-    border-radius: 2rem;
+    border-radius: 1rem;
     border: 1px solid var(--edit-dialog-color);
 }
 
@@ -79,12 +79,12 @@ dialog {
     justify-content: space-between;
     align-items: center;
     margin: 1rem auto;
-    padding: 1em 1.5em;
+    padding: 0.5em 1.5em;
     color: #B9EDF8;
     font-size: 1rem;
     font-weight: 700;
     background-color: var(--add-dialog-color);
-    border-radius: 2rem;
+    border-radius: 1rem;
     border: 1px solid var(--add-dialog-color);
 }
 .dialogAddButton:hover {
@@ -95,15 +95,33 @@ dialog {
     justify-content: space-between;
     align-items: center;
     margin: 1rem auto;
-    padding: 1em 1.5em;
+    padding: 0.5em 1.5em;
     color: var(--border-color);
     font-size: 1rem;
     font-weight: 700;
     background-color: transparent;
-    border-radius: 2rem;
+    border-radius: 1rem;
     border: 1px solid var(--border-color);
 }
 
 .dialogCancelButton:hover {
+    border: 1px solid #FFEF6C;
+}
+
+.addButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem auto;
+    padding: 0.5em 1.5em;
+    color: #B9EDF8;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: #1F6ED4;
+    border-radius: 1rem;
+    border: 1px solid #1F6ED4;
+}
+
+.addButton:hover {
     border: 1px solid #FFEF6C;
 }

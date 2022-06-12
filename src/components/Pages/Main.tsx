@@ -91,8 +91,8 @@ const Main = () => {
 
   return (
     <>
-      <button type='button' onClick={showAddModal}>
-        追加する
+      <button className={styles.addButton} type='button' onClick={showAddModal}>
+        TODOを追加
       </button>
       <div
         className={styles.visuallyHidden}

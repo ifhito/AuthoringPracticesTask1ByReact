@@ -1,5 +1,6 @@
 .todoListUl {
     list-style-type: none;
+    width: 30%;
     --edit-color: #1868F2;
     --delete-color: #C00000;
 }
@@ -14,6 +15,12 @@
     background-color: transparent;
     border-radius: 6px;
     border: 1px solid var(--edit-color);
+    transition: 1.0s ;
+}
+
+.editButton:hover {
+    color: white;
+    background-color: var(--edit-color);
 }
 
 .deleteButton {
@@ -26,4 +33,10 @@
     background-color: transparent;
     border-radius: 6px;
     border: 1px solid var(--delete-color);
+    transition: 0.2s ;
+}
+
+.deleteButton:hover {
+    color: white;
+    background-color: var(--delete-color);
 }
